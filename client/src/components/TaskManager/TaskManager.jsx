@@ -1,20 +1,13 @@
+import TaskManagerList from "../Taskmanagerlist/Taskmanagerlist";
 
 const TaskManager = () => {
   return (
-    <>
-
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col-md-7">
-            <TodoList />
-          </div>
-          <div className="col-md-5">
-            <AddTask />
-          </div>
-        </div>
+    <div className="container mx-auto ">
+      <div className="gap-4 mx-auto">
+        <TaskManagerList />
       </div>
-    </>
+    </div>
   );
-}
+};
 
-export default TaskManager
+export default TaskManager;
