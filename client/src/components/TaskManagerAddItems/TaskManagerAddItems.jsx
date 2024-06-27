@@ -20,7 +20,10 @@ const TaskManagerAddItems = () => {
     };
 
     axios
-      .post("http://localhost:3001/tasks", taskData)
+      .post(
+        "https://imagoai-s-kiran-kumar-task-manager.onrender.com/tasks",
+        taskData
+      )
       .then((response) => {
         console.log("Task added:", response.data);
         setNewTask("");

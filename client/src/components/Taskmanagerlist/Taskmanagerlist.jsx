@@ -15,7 +15,7 @@ const TaskManagerList = () => {
 
   const fetchTasks = () => {
     axios
-      .get("http://localhost:3001/tasks")
+      .get("https://imagoai-s-kiran-kumar-task-manager.onrender.com/tasks")
       .then((response) => {
         setTaskList(response.data);
       })
@@ -47,7 +47,10 @@ const TaskManagerList = () => {
     };
 
     axios
-      .put(`http://localhost:3001/tasks/${id}`, editedData)
+      .put(
+        `https://imagoai-s-kiran-kumar-task-manager.onrender.com/tasks/${id}`,
+        editedData
+      )
       .then((response) => {
         console.log("Task updated:", response.data);
         fetchTasks();
@@ -59,7 +62,9 @@ const TaskManagerList = () => {
 
   const deleteTask = (id) => {
     axios
-      .delete(`http://localhost:3001/tasks/${id}`)
+      .delete(
+        `https://imagoai-s-kiran-kumar-task-manager.onrender.com/tasks/${id}`
+      )
       .then((response) => {
         console.log("Task deleted:", response.data);
         fetchTasks();
