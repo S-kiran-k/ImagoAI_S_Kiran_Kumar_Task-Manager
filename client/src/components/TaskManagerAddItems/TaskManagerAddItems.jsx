@@ -1,5 +1,6 @@
-import  { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
+import { toast, Toaster } from "sonner"; // Import Toaster from sonner // Import toast from sonner
 
 const TaskManagerAddItems = () => {
   const [newTask, setNewTask] = useState("");
@@ -9,7 +10,7 @@ const TaskManagerAddItems = () => {
   const addTask = (e) => {
     e.preventDefault();
     if (!newTask || !newStatus || !newDeadline) {
-      console.error("All fields must be filled out.");
+      toast.error("All fields must be filled out."); // Display error toast
       return;
     }
 
@@ -29,9 +30,11 @@ const TaskManagerAddItems = () => {
         setNewTask("");
         setNewStatus("");
         setNewDeadline("");
+        toast.success("Task has been added successfully"); // Display success toast
       })
       .catch((error) => {
         console.error("Error adding task:", error);
+        toast.error("Failed to add task. Please try again."); // Display error toast
       });
   };
 
@@ -75,6 +78,7 @@ const TaskManagerAddItems = () => {
           Add Task
         </button>
       </form>
+      <Toaster position="bottom-right" richColors />
     </div>
   );
 };
